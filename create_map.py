@@ -1,4 +1,3 @@
-import pickle_funcs as pk  # remove this after testing
 import matplotlib.pyplot as plt
 import matplotlib.cm
 from mpl_toolkits.basemap import Basemap
