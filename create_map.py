@@ -1,12 +1,6 @@
-
-# coding: utf-8
-
-# In[1]:
-
-import pickle_funcs as pk
+import pickle_funcs as pk # remove this after testing
 import matplotlib.pyplot as plt
 import matplotlib.cm
-
 from mpl_toolkits.basemap import Basemap
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
