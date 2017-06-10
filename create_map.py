@@ -5,9 +5,11 @@ from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
 from matplotlib.colors import Normalize
 from . import helpers
+import os
 
 
-def create_image(filename):
+def create_image(filename, size=16, res='f'):
+    wd = os.getcwd() + '/map_app/'
     print('Generating lats, lons from zipcodes')
     lats, lons = helpers.get_lat_lon(filename)
     print('Drawing map background')
@@ -15,16 +17,16 @@ def create_image(filename):
     eastlimit = -63.19; northlimit = 50.32
     mid_lat = abs(westlimit - eastlimit) * 0.5
     mid_lon = abs(northlimit - southlimit) * 0.5
-    fig, ax = plt.subplots(figsize=(16,9))
+    fig, ax = plt.subplots(figsize=(size,size*(9/16)))
     # c, l, i, h, f or None
     m = Basemap(
-        resolution='f', projection='merc', lat_0=mid_lat,
+        resolution=res, projection='merc', lat_0=mid_lat,
         lon_0=mid_lon, llcrnrlon=westlimit, llcrnrlat=southlimit,
         urcrnrlon=eastlimit, urcrnrlat=northlimit)
     m.drawmapboundary(fill_color='#46bcec')
     m.fillcontinents(color='#f2f2f2', lake_color='#46bcec')
     m.drawcoastlines()
-    m.readshapefile('statesp020', 'statesp020')
+    m.readshapefile(wd+'statesp020', wd+'statesp020')
     print('Generated map. Plotting...')
     x, y = m(lons, lats)
     m.plot(x, y, '.', markersize='8')
