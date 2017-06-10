@@ -4,8 +4,7 @@ from mpl_toolkits.basemap import Basemap
 from matplotlib.patches import Polygon
 from matplotlib.collections import PatchCollection
 from matplotlib.colors import Normalize
-import helpers
-import zipcode_tools
+from . import helpers
 
 
 def create_image(filename):

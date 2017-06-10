@@ -1,5 +1,5 @@
 """Misc functions for app"""
-import zipcode_tools
+from . import zipcode_tools
 
 def read_csv(filename):
     """Reads a single column csv into a list"""
