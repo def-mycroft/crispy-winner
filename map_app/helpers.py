@@ -27,7 +27,7 @@ def get_lat_lon(df, col='ZipCode'):
 def find_zip_code(astring):
     """Uses regex to find zipcode in a string"""
     regex = r'\d{5}'
-    zipcode = re.findall(regex, astring)
+    zipcode = re.findall(regex, str(astring))
     if len(zipcode) != 0:
         return zipcode[0]
     else:
