@@ -4,5 +4,4 @@ import imp
 
 
 def create_map(filename):
-    map_generator.create_image(filename, imp.find_module('map_app')[1]+'/')
-
+    map_generator.create_image(filename, imp.find_module('map_app')[1] + '/')

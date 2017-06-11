@@ -12,11 +12,13 @@ def create_image(filename, wd):
     print('Generating lats, lons from zipcodes')
     lats, lons = helpers.get_lat_lon(filename)
     print('Drawing map background')
-    westlimit = -127.53; southlimit = 24.17;
-    eastlimit = -63.19; northlimit = 50.32
+    westlimit = -127.53
+    southlimit = 24.17
+    eastlimit = -63.19
+    northlimit = 50.32
     mid_lat = abs(westlimit - eastlimit) * 0.5
     mid_lon = abs(northlimit - southlimit) * 0.5
-    fig, ax = plt.subplots(figsize=(16,9))
+    fig, ax = plt.subplots(figsize=(16, 9))
     # c, l, i, h, f or None
     m = Basemap(
         resolution='f', projection='merc', lat_0=mid_lat,
@@ -25,7 +27,7 @@ def create_image(filename, wd):
     m.drawmapboundary(fill_color='#46bcec')
     m.fillcontinents(color='#f2f2f2', lake_color='#46bcec')
     m.drawcoastlines()
-    m.readshapefile(wd+'statesp020', wd+'statesp020')
+    m.readshapefile(wd + 'statesp020', wd + 'statesp020')
     print('Generated map. Plotting...')
     x, y = m(lons, lats)
     m.plot(x, y, '.', markersize='8')

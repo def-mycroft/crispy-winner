@@ -1,6 +1,6 @@
 """Two ways to get latlon data from a given zipcode string."""
 import zipcode
-from pyzipcode import ZipCodeDatabase 
+from pyzipcode import ZipCodeDatabase
 from geopy.geocoders import Nominatim
 from geopy.distance import great_circle
 
@@ -10,7 +10,6 @@ def get_city_data_geopy(zipc):
     geolocator = Nominatim()
     coord_data = geolocator.geocode(str(zipc))
     name_data = zipcode.isequal(str(zipc))
-
     if coord_data is not None and name_data is not None:
         lat = coord_data[1][0]
         lon = coord_data[1][1]

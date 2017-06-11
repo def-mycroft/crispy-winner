@@ -2,11 +2,12 @@ from setuptools import setup
 
 setup(name='map_app',
       version='0.1',
-      description='Givven a set of zipcodes, plot points on a map representing them',
+      description='Given a set of zipcodes, plot representative points on map',
       url='https://github.com/def-mycroft/crispy-winner',
       author='Joseph Dasenbrock',
       author_email='dasenbrockjw@gmail.com',
       license='MIT',
       packages=['map_app'],
-      package_data={'': ['README.md', 'statesp020.dbf', 'statesp020.shp', 'statesp020.shx', 'statesp020.txt']},
+      package_data={'': ['README.md', 'statesp020.dbf',
+                         'statesp020.shp', 'statesp020.shx', 'statesp020.txt']},
       zip_safe=False)

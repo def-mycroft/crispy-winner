@@ -2,7 +2,9 @@
 from . import zipcode_tools
 import re
 
+
 def to_csv(alist):
+    """Writes a list to a csv file"""
     with open('errors.csv', 'w+') as f:
         for line in alist:
             f.write('%s,\n' % line)
@@ -10,12 +12,16 @@ def to_csv(alist):
 
 def get_lat_lon(df, col='ZipCode'):
     """Returns two lists for lats and lons"""
-    lats = list(); lons = list(); errors = list();
+    lats = list()
+    lons = list()
+    errors = list()
     for zipcode in df[col]:
-        data = zipcode_tools.get_city_data_geolocator(zipcode) 
-        lat = data[0]; lon = data[1];
+        data = zipcode_tools.get_city_data_geolocator(zipcode)
+        lat = data[0]
+        lon = data[1]
         if isinstance(lat, float) and isinstance(lon, float):
-            lats.append(lat); lons.append(lon)
+            lats.append(lat)
+            lons.append(lon)
         else:
             errors.append(zipcode)
     if len(errors) != 0:
