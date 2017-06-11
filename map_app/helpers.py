@@ -1,5 +1,6 @@
 """Misc functions for app"""
 from . import zipcode_tools
+import re
 
 def to_csv(alist):
     with open('errors.csv', 'w+') as f:
@@ -21,3 +22,9 @@ def get_lat_lon(df, col='ZipCode'):
         to_csv(errors)
         print('Errors written to file. Length: %s' % len(errors))
     return lats, lons
+
+
+def find_zip_code(astring):
+    """Uses regex to find zipcode in a string"""
+    regex = r'\d{5}'
+    return re.findall(regex, test)[0]
