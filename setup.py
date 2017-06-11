@@ -8,4 +8,5 @@ setup(name='map_app',
       author_email='dasenbrockjw@gmail.com',
       license='MIT',
       packages=['map_app'],
+      package_data={'': ['README.md', 'statesp020.dbf', 'statesp020.shp', 'statesp020.shx', 'statesp020.txt']},
       zip_safe=False)

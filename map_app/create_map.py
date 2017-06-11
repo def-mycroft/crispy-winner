@@ -8,8 +8,7 @@ from . import helpers
 import os
 
 
-def create_image(filename, size=16, res='f'):
-    wd = __path__[0] + '/'
+def create_image(filename, wd):
     print('Generating lats, lons from zipcodes')
     lats, lons = helpers.get_lat_lon(filename)
     print('Drawing map background')
@@ -17,10 +16,10 @@ def create_image(filename, size=16, res='f'):
     eastlimit = -63.19; northlimit = 50.32
     mid_lat = abs(westlimit - eastlimit) * 0.5
     mid_lon = abs(northlimit - southlimit) * 0.5
-    fig, ax = plt.subplots(figsize=(size,size*(9/16)))
+    fig, ax = plt.subplots(figsize=(16,9))
     # c, l, i, h, f or None
     m = Basemap(
-        resolution=res, projection='merc', lat_0=mid_lat,
+        resolution='f', projection='merc', lat_0=mid_lat,
         lon_0=mid_lon, llcrnrlon=westlimit, llcrnrlat=southlimit,
         urcrnrlon=eastlimit, urcrnrlat=northlimit)
     m.drawmapboundary(fill_color='#46bcec')

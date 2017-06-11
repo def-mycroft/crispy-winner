@@ -1,6 +1,7 @@
 from . import create_map
+import imp
 
 
-def map_image(filename, size=16, res='f'):
-    create_map.create_image(filename, size=size, res='f')
+def map_image(filename):
+    create_map.create_image(filename, imp.find_module('map_app')[1]+'/')
 
