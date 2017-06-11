@@ -1,4 +1,4 @@
-"""Two ways to get latlon data from a given zipcode string."""
+"""Zipcode tools - translate zipcodes into gps coordinates."""
 import zipcode
 from pyzipcode import ZipCodeDatabase
 from geopy.geocoders import Nominatim
@@ -20,24 +20,10 @@ def get_city_data_geopy(zipc):
         return 'None', 'None', 'None'
 
 
-def get_city_data_geolocator(zipc):
-    """Given a zip code, return latlon and city name"""
-    geolocator = ZipCodeDatabase()
-    try:
-        zip_data = geolocator[str(zipc)]
-        lat = zip_data.latitude
-        lon = zip_data.longitude
-        name = '%s, %s' % (zip_data.city, zip_data.state)
-        return lat, lon, name
-
-    except:
-        return 'None', 'None', 'None'
-
-
 def dist_between_zips(zipone, ziptwo):
     """Returns great-circle distance between two zip code"""
-    zipone = get_city_data_geolocator(zipone)
-    ziptwo = get_city_data_geolocator(ziptwo)
+    zipone = get_city_data_geopy(zipone)
+    ziptwo = get_city_data_geopy(ziptwo)
     if 'None' not in zipone and 'None' not in ziptwo:
         return great_circle(tuple(zipone[:2]), tuple(ziptwo[:2])).miles
     else:

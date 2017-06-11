@@ -16,7 +16,7 @@ def get_lat_lon(df, col='ZipCode'):
     lons = list()
     errors = list()
     for zipcode in df[col]:
-        data = zipcode_tools.get_city_data_geolocator(zipcode)
+        data = zipcode_tools.get_city_data_geopy(zipcode)
         lat = data[0]
         lon = data[1]
         if isinstance(lat, float) and isinstance(lon, float):
