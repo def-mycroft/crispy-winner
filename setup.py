@@ -7,6 +7,6 @@ setup(name='map_app',
       author='Joseph Dasenbrock',
       author_email='dasenbrockjw@gmail.com',
       packages=['map_app'],
-      package_data={'': ['README.md', 'statesp020.dbf',
+      package_data={'': ['statesp020.dbf',
                          'statesp020.shp', 'statesp020.shx', 'statesp020.txt']},
       zip_safe=False)
