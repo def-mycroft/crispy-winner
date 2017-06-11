@@ -9,7 +9,7 @@ import os
 
 
 def create_image(filename, size=16, res='f'):
-    wd = os.getcwd() + '/map_app/'
+    wd = __path__[0] + '/'
     print('Generating lats, lons from zipcodes')
     lats, lons = helpers.get_lat_lon(filename)
     print('Drawing map background')
