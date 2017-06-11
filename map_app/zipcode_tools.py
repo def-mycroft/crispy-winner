@@ -1,6 +1,5 @@
 """Zipcode tools - translate zipcodes into gps coordinates."""
 import zipcode
-from pyzipcode import ZipCodeDatabase
 from geopy.geocoders import Nominatim
 from geopy.distance import great_circle
 
