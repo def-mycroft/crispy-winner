@@ -1,12 +1,12 @@
 # Python Map Application
 Python script which plots points on a map of the United States, given a list of zip codes. 
 
-# Usage 
+## Usage 
 
 Install with below instructions. A Pandas DataFrame with a column titled 
 'ZipCode' can be passed to the 'create\_map' function.
 
-#Installation Instructions 
+## Installation Instructions 
 
 ```
 For anaconda, first run these commands:
