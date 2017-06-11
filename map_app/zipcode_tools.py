@@ -39,7 +39,7 @@ def dist_between_zips(zipone, ziptwo):
     """Returns great-circle distance between two zip code"""
     zipone = get_city_data_geolocator(zipone)
     ziptwo = get_city_data_geolocator(ziptwo)
-    if zipone != None and ziptwo != None:
+    if 'None' not in zipone and 'None' not in ziptwo:
         return great_circle(tuple(zipone[:2]), tuple(ziptwo[:2])).miles
     else:
         return 0
