@@ -1,7 +1,8 @@
 """Two ways to get latlon data from a given zipcode string."""
 import zipcode
-from pyzipcode import ZipCodeDatabase # Can't import this for some reason.
+from pyzipcode import ZipCodeDatabase 
 from geopy.geocoders import Nominatim
+from geopy.distance import great_circle
 
 
 def get_city_data_geopy(zipc):
@@ -32,3 +33,10 @@ def get_city_data_geolocator(zipc):
 
     except:
         return 'None', 'None', 'None'
+
+
+def dist_between_zips(zipone, ziptwo):
+    """Returns great-circle distance between two zip code"""
+    zipone = get_city_data_geolocator(zipone)
+    ziptwo = get_city_data_geolocator(ziptwo)
+    return great_circle(zipone, ziptwo).miles

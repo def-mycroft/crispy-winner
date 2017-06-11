@@ -1,7 +1,8 @@
-from . import create_map
+from . import map_generator
+from . import zipcode_tools
 import imp
 
 
-def map_image(filename):
-    create_map.create_image(filename, imp.find_module('map_app')[1]+'/')
+def create_map(filename):
+    map_generator.create_image(filename, imp.find_module('map_app')[1]+'/')
 
