@@ -8,8 +8,8 @@ Install with below instructions. A Pandas DataFrame with a column titled
 
 ## Installation Instructions 
 
-```
 For anaconda, first run these commands:
+```
 conda install -c conda-forge basemap=1.0.8.dev0
 conda install -c conda-forge basemap-data-hires
 pip install zipcode
